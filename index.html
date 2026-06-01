@@ -220,21 +220,49 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
     <button class="btn-open" onclick="openCard()">🔗 Mở thiệp</button>
   </div>
 
-</div><!-- container -->
-
-<!-- HƯỚNG DẪN SETUP -->
 <div id="huong-dan" style="background:#fff; border-top:1px solid #e0d8cc; padding:40px 24px;">
   <div style="max-width:600px; margin:0 auto;">
     <h2 style="font-family:'Playfair Display',serif; color:#7a3a3a; font-size:22px; margin-bottom:20px;">⚙️ Hướng dẫn Setup Google Sheet RSVP</h2>
     
-    <div style="background:#f5f2ec; border-radius:12px; padding:20px; margin-bottom:20px;">
-      <p style="font-size:14px; line-height:1.7; color:#3a3330;">
-        1. <strong>Tạo Sheet:</strong> Truy cập <a href="https://sheets.google.com" target="_blank">Google Sheets</a>, tạo bảng mới với các cột: <em>Timestamp, Tên, Tham dự, Thiệp</em>.<br><br>
-        2. <strong>Apps Script:</strong> Vào <em>Tiện ích > Apps Script</em>. Xóa code cũ, dán đoạn script xử lý dữ liệu vào rồi nhấn <em>Lưu</em>.<br><br>
-        3. <strong>Triển khai:</strong> Nhấn <em>Triển khai > Triển khai mới > Ứng dụng web</em>.<br>
-        - Quyền truy cập: <strong>Bất kỳ ai</strong>.<br>
-        - Nhấn <em>Triển khai</em> và cấp quyền (chọn <em>Nâng cao > Đi tới dự án (không an toàn)</em>).<br>
-        - Copy URL và dán vào ô "Google Apps Script URL" trong trang này.
+    <div style="background:#f5f2ec; border-radius:12px; padding:20px; margin-bottom:16px; border-left:4px solid #7a3a3a;">
+      <div style="font-weight:700; margin-bottom:8px;">Bước 1: Chuẩn bị Google Sheet</div>
+      <p style="font-size:14px; line-height:1.6; color:#555;">
+        Tạo một Google Sheet mới. Tại dòng đầu tiên (hàng 1), nhập tên 4 cột lần lượt là: 
+        <code style="background:#e8e4dc; padding:2px 6px; border-radius:4px;">Timestamp</code>, <code style="background:#e8e4dc; padding:2px 6px; border-radius:4px;">Tên</code>, <code style="background:#e8e4dc; padding:2px 6px; border-radius:4px;">Tham dự</code>, <code style="background:#e8e4dc; padding:2px 6px; border-radius:4px;">Thiệp</code>.
+      </p>
+    </div>
+
+    <div style="background:#f5f2ec; border-radius:12px; padding:20px; margin-bottom:16px; border-left:4px solid #7a3a3a;">
+      <div style="font-weight:700; margin-bottom:8px;">Bước 2: Cấu hình Apps Script</div>
+      <p style="font-size:14px; line-height:1.6; color:#555;">
+        Trong Sheet, chọn <strong>Tiện ích > Apps Script</strong>. Xóa toàn bộ code mặc định và dán đoạn code dưới đây vào:
+      </p>
+      <pre style="background:#1e1e2e; color:#cdd6f4; padding:12px; border-radius:6px; font-size:11px; overflow-x:auto; margin-top:10px;">
+function doPost(e) {
+  var sheet = SpreadsheetApp
+    .getActiveSpreadsheet()
+    .getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    new Date().toLocaleString('vi-VN'),
+    data.ten,
+    data.thamDu,
+    data.thiep
+  ]);
+  return ContentService
+    .createTextOutput(JSON.stringify({ok:true}))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+    </div>
+
+    <div style="background:#f5f2ec; border-radius:12px; padding:20px; border-left:4px solid #7a3a3a;">
+      <div style="font-weight:700; margin-bottom:8px;">Bước 3: Triển khai (Deploy)</div>
+      <p style="font-size:14px; line-height:1.6; color:#555;">
+        1. Nhấn nút <strong>Triển khai</strong> > <strong>Triển khai mới</strong>.<br>
+        2. Chọn loại <strong>Ứng dụng web</strong>.<br>
+        3. Cấu hình: <em>Thực thi dưới quyền:</em> <strong>Tôi</strong>; <em>Ai có quyền truy cập:</em> <strong>Bất kỳ ai</strong>.<br>
+        4. Nhấn <strong>Triển khai</strong>. (Nếu hiện bảng yêu cầu, chọn <em>Nâng cao > Đi tới dự án (không an toàn) > Cho phép</em>).<br>
+        5. Copy đường dẫn <strong>URL ứng dụng web</strong> và dán vào ô "Google Apps Script URL" trong trang này.
       </p>
     </div>
   </div>
