@@ -234,27 +234,24 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
 
     <div style="background:#f5f2ec;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid var(--main);">
       <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 2 — Tạo Apps Script</div>
-      <p style="font-size:14px;line-height:1.7;color:#555;">Trong Sheet → <strong>Tiện ích → Apps Script</strong> → Dán đoạn code sau:</p>
+      <p style="font-size:14px;line-height:1.7;color:#555;">Trong Sheet → <strong>Tiện ích → Apps Script</strong> → Xóa hết code cũ và dán đoạn sau vào:</p>
       <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;font-size:12px;overflow-x:auto;margin-top:10px;line-height:1.6;">function doPost(e) {
-  var sheet = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getActiveSheet();
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    new Date().toLocaleString('vi-VN'),
-    data.ten,
-    data.thamDu,
-    data.thiep
-  ]);
-  return ContentService
-    .createTextOutput(JSON.stringify({ok:true}))
-    .setMimeType(ContentService.MimeType.JSON);
+  sheet.appendRow([new Date().toLocaleString('vi-VN'), data.ten, data.thamDu, data.thiep]);
+  return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
 }</pre>
     </div>
 
     <div style="background:#f5f2ec;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid var(--main);">
-      <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 3 — Triển khai</div>
-      <p style="font-size:14px;line-height:1.7;color:#555;"><strong>Chọn vào biểu tượng save → Chọn gỡ lỗi (nếu yêu cầu ủy quyền thì bấm vào xem lại quyền) → Chọn Nâng cao → Chọn Đi tới Dự án không có tiêu đề và cấp quyền → Quay lại chọn vào nhật ký thực thi (nếu hiện chữ Đã bắt đầu quá trình thực thi thì bấm triển khai) → Chọn triển khai → Tùy chọn triển khai mới → chọn biểu tượng bánh răng → Ứng dụng web → Mục "Người có quyền truy cập" → Chọn Bất kỳ ai → Triển khai → Ủy quyền truy cập một lần nữa và sao chép link </strong> → Execute as: <em>Me</em> → Quá trình triển khai: <em>Anyone</em> Chọn vào biểu tượng save → Chọn gỡ lỗi (nếu yêu cầu ủy quyền thì bấm vào xem lại quyền) → Chọn Nâng cao → Chọn Đi tới Dự án không có tiêu đề và cấp quyền → Quay lại chọn vào nhật ký thực thi (nếu hiện chữ Đã bắt đầu quá trình thực thi thì bấm triển khai) → Chọn triển khai → Tùy chọn triển khai mới → chọn biểu tượng bánh răng → Ứng dụng web → Mục "Người có quyền truy cập" → Chọn Bất kỳ ai → Triển khai → Ủy quyền truy cập một lần nữa và sao chép link</p>
+      <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 3 — Triển khai Web App</div>
+      <ul style="font-size:14px;line-height:1.7;color:#555;padding-left:20px;">
+        <li>Nhấn nút <strong>Triển khai (Deploy)</strong> → <strong>Triển khai mới</strong>.</li>
+        <li>Chọn loại là <strong>Ứng dụng web</strong>.</li>
+        <li>Cấu hình: Thực thi dưới quyền là <strong>Tôi</strong>; Ai có quyền truy cập là <strong>Bất kỳ ai</strong>.</li>
+        <li>Nhấn <strong>Triển khai</strong>. Nếu yêu cầu ủy quyền: Chọn <strong>Nâng cao</strong> → <strong>Đi tới Dự án (không an toàn)</strong> → <strong>Cho phép</strong>.</li>
+        <li>Sao chép đường dẫn (URL) và dán vào ô "Google Apps Script URL" bên trên.</li>
+      </ul>
     </div>
   </div>
 </div>
