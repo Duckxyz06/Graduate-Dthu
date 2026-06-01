@@ -237,11 +237,9 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
       <p style="font-size:14px; line-height:1.6; color:#555;">
         Trong Sheet, chọn <strong>Tiện ích > Apps Script</strong>. Xóa toàn bộ code mặc định và dán đoạn code dưới đây vào:
       </p>
-      <pre style="background:#1e1e2e; color:#cdd6f4; padding:12px; border-radius:6px; font-size:11px; overflow-x:auto; margin-top:10px;">
-function doPost(e) {
-  var sheet = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getActiveSheet();
+     <pre style="background:#1e1e2e; color:#cdd6f4; padding:12px; border-radius:6px; font-size:11px; overflow-x:auto; margin-top:10px; text-align: left;">
+<code>function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var data = JSON.parse(e.postData.contents);
   sheet.appendRow([
     new Date().toLocaleString('vi-VN'),
@@ -249,10 +247,10 @@ function doPost(e) {
     data.thamDu,
     data.thiep
   ]);
-  return ContentService
-    .createTextOutput(JSON.stringify({ok:true}))
+  return ContentService.createTextOutput(JSON.stringify({ok:true}))
     .setMimeType(ContentService.MimeType.JSON);
-}</pre>
+}</code>
+</pre>
     </div>
 
     <div style="background:#f5f2ec; border-radius:12px; padding:20px; border-left:4px solid #7a3a3a;">
