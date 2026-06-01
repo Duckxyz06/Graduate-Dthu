@@ -616,8 +616,12 @@ const CFG = {
   diaDiem:  "Hội trường H1 — Trường Đại học Đồng Tháp",
   diaChiCT: "783 Phạm Hữu Lầu, Phường Cao Lãnh, Tỉnh Đồng Tháp",
 
-  // Liên hệ
-  sdt:      "",
+const sdtEl = document.getElementById('valSdt');
+if (P.sdt) {
+    sdtEl.innerHTML = `${P.sdt}<br><small style="color:#888;">Messenger / Zalo</small>`;
+} else {
+    sdtEl.textContent = "Đang cập nhật";
+}
 
   // Lời mời (để trống nếu giữ nguyên mặc định)
   loiMoi: "",
