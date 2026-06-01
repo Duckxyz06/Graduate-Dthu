@@ -350,14 +350,16 @@ function createCard() {
     script: document.getElementById('scriptUrl').value,
   });
 
-  // Lưu ảnh vào sessionStorage với key ngắn
   const imgKey = 'gc_' + Date.now();
   sessionStorage.setItem(imgKey, localStorage.getItem('gradcard_img'));
 
-  const link = 'thiep.html?' + params.toString() + '&imgKey=' + imgKey;
-  window._cardLink = link;
+  // TẠO LINK ĐẦY ĐỦ (Không rút gọn)
+  const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+  const fullLink = baseUrl + 'thiep.html?' + params.toString() + '&imgKey=' + imgKey;
+  
+  window._cardLink = fullLink;
+  document.getElementById('resultLink').textContent = fullLink;
 
-  document.getElementById('resultLink').textContent = window.location.origin + '/' + link;
   document.getElementById('resultCard').style.display = 'block';
   document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth' });
 
