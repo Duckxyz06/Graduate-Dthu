@@ -673,7 +673,7 @@ const get = (key) => P[key] || CFG[key] || '';
     document.getElementById('callBtn').textContent = '📞 ' + sdt;
   }
 
-  // Ảnh
+  // ── Ảnh ──
   const anhUrl = P.imgKey ? sessionStorage.getItem(P.imgKey) : (P.anhUrl || CFG.anhUrl);
   if (anhUrl) {
     const ph = document.getElementById('heroPhoto');
