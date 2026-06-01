@@ -682,7 +682,8 @@ const get = (key) => P[key] || CFG[key] || '';
     img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:4px;';
     ph.innerHTML = ''; ph.appendChild(img);
   }
-
+const link = 'thiep.html?' + params.toString() + '&imgKey=' + imgKey;
+  window._cardLink = link;
   // Title
   document.title = 'Thiệp tốt nghiệp — ' + (P.ten || CFG.ten);
 })();
