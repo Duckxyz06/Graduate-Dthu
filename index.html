@@ -122,17 +122,17 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
 
     <div class="field">
       <label class="label">Họ và tên đầy đủ <span>*</span></label>
-      <input class="input" id="hoTen" type="text" placeholder="VD: Dỗ Xuân Bạch">
+      <input class="input" id="hoTen" type="text" placeholder="VD: Nguyễn Việt Đức">
     </div>
 
     <div class="field">
       <label class="label">Chuyên ngành <span>*</span></label>
-      <input class="input" id="nganh" type="text" placeholder="VD: Sư phạm Tin học">
+      <input class="input" id="nganh" type="text" placeholder="VD: Ngôn ngữ Anh">
     </div>
 
     <div class="field">
       <label class="label">Khoa / Bộ môn</label>
-      <input class="input" id="khoa" type="text" placeholder="VD: Khoa Sư phạm Toán - Tin">
+      <input class="input" id="khoa" type="text" placeholder="VD: Khoa Ngoại ngữ">
     </div>
 
     <div class="field">
@@ -177,7 +177,7 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
 
     <div class="field">
       <label class="label">Số điện thoại liên hệ</label>
-      <input class="input" id="sdt" type="tel" placeholder="VD: 0901 234 567">
+      <input class="input" id="sdt" type="tel" placeholder="VD: 0337824707">
     </div>
   </div>
 
@@ -187,12 +187,12 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
 
     <div class="field">
       <label class="label">Lời mời tham dự</label>
-      <textarea class="textarea" id="loiMoi" placeholder="VD: Thân mời quý thầy cô, gia đình, bạn bè...">Thân mời quý thầy cô, gia đình, bạn bè anh chị em những người thân yêu đến tham dự buổi lễ tốt nghiệp cùng em để cùng chia sẻ niềm vui, lưu giữ những khoảnh khắc đẹp và chúc mừng cho hành trình trưởng thành này của em. Sự hiện diện của mọi người sẽ là niềm vui và món quà ý nghĩa nhất dành cho em trong ngày đặc biệt ấy. 🎊✨</textarea>
+      <textarea class="textarea" id="loiMoi" placeholder="VD: Thân mời quý thầy cô, gia đình, bạn bè...">Thân mời quý thầy cô, gia đình, bạn bè cùng những người thân yêu đến tham dự Lễ Tốt nghiệp của em để cùng chia sẻ niềm vui, lưu giữ những khoảnh khắc đáng nhớ và chúc mừng cho cột mốc trưởng thành đầy ý nghĩa này.  Sự hiện diện của mọi người sẽ là niềm vinh hạnh, niềm vui và cũng là món quà quý giá nhất dành cho em trong ngày đặc biệt ấy. Em rất mong được đón tiếp và cùng mọi người tạo nên những kỷ niệm đẹp tại buổi lễ ❤️</textarea>
     </div>
 
     <div class="field">
       <label class="label">Quote cảm xúc</label>
-      <textarea class="textarea" id="quote" placeholder="Câu quote ý nghĩa..." style="min-height:80px;">🎓 Graduation Day 🎓 Một hành trình khép lại — một chặng đường mới bắt đầu. Từ những ngày đầu bỡ ngỡ đến hôm nay khoác lên mình chiếc áo cử nhân, tất cả đều là những kỷ niệm thật đẹp của tuổi trẻ.</textarea>
+      <textarea class="textarea" id="quote" placeholder="Câu quote ý nghĩa..." style="min-height:80px;">Bốn năm trước, tôi bước vào giảng đường với sự háo hức, những ước mơ còn dang dở và không ít băn khoăn về tương lai. Hôm nay, tôi rời nơi đây với hành trang là kiến thức, trải nghiệm, những tình bạn đẹp và vô vàn kỷ niệm đáng nhớ.  Chiếc áo cử nhân không chỉ đánh dấu sự hoàn thành một chặng đường học tập, mà còn là minh chứng cho những nỗ lực, những lần cố gắng vượt qua thử thách và những ngày tháng không ngừng trưởng thành.  Cảm ơn gia đình, thầy cô và bạn bè đã luôn ở bên, động viên và đồng hành trong suốt hành trình này. Một chương đã khép lại, nhưng những ước mơ vẫn đang tiếp tục được viết nên.  Chào tuổi trẻ với những ký ức thật đẹp, và chào tương lai với tất cả sự tự tin và hy vọng.💙✨</textarea>
     </div>
   </div>
 
@@ -234,7 +234,7 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
 
     <div style="background:#f5f2ec;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid var(--main);">
       <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 2 — Tạo Apps Script</div>
-      <p style="font-size:14px;line-height:1.7;color:#555;">Trong Sheet → <strong>Extensions → Apps Script</strong> → Dán đoạn code sau:</p>
+      <p style="font-size:14px;line-height:1.7;color:#555;">Trong Sheet → <strong>Tiện ích → Apps Script</strong> → Dán đoạn code sau:</p>
       <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;font-size:12px;overflow-x:auto;margin-top:10px;line-height:1.6;">function doPost(e) {
   var sheet = SpreadsheetApp
     .getActiveSpreadsheet()
@@ -253,8 +253,8 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);min-he
     </div>
 
     <div style="background:#f5f2ec;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid var(--main);">
-      <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 3 — Deploy</div>
-      <p style="font-size:14px;line-height:1.7;color:#555;"><strong>Deploy → New deployment → Web app</strong> → Execute as: <em>Me</em> → Who has access: <em>Anyone</em> → Deploy → Copy URL → Dán vào ô "Google Apps Script URL" bên trên.</p>
+      <div style="font-weight:700;margin-bottom:10px;font-size:15px;">Bước 3 — Triển khai</div>
+      <p style="font-size:14px;line-height:1.7;color:#555;"><strong>Chọn vào biểu tượng save → Chọn gỡ lỗi (nếu yêu cầu ủy quyền thì bấm vào xem lại quyền) → Chọn Nâng cao → Chọn Đi tới Dự án không có tiêu đề và cấp quyền → Quay lại chọn vào nhật ký thực thi (nếu hiện chữ Đã bắt đầu quá trình thực thi thì bấm triển khai) → Chọn triển khai → Tùy chọn triển khai mới → chọn biểu tượng bánh răng → Ứng dụng web → Mục "Người có quyền truy cập" → Chọn Bất kỳ ai → Triển khai → Ủy quyền truy cập một lần nữa và sao chép link </strong> → Execute as: <em>Me</em> → Quá trình triển khai: <em>Anyone</em> Chọn vào biểu tượng save → Chọn gỡ lỗi (nếu yêu cầu ủy quyền thì bấm vào xem lại quyền) → Chọn Nâng cao → Chọn Đi tới Dự án không có tiêu đề và cấp quyền → Quay lại chọn vào nhật ký thực thi (nếu hiện chữ Đã bắt đầu quá trình thực thi thì bấm triển khai) → Chọn triển khai → Tùy chọn triển khai mới → chọn biểu tượng bánh răng → Ứng dụng web → Mục "Người có quyền truy cập" → Chọn Bất kỳ ai → Triển khai → Ủy quyền truy cập một lần nữa và sao chép link</p>
     </div>
   </div>
 </div>
