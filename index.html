@@ -303,7 +303,7 @@ ua.addEventListener('drop', e => {
 });
 
 // ── Tạo thiệp ──
-async function createCard() {
+function createCard() {
   const fields = {
     hoTen: 'Họ và tên',
     nganh: 'Chuyên ngành',
@@ -350,23 +350,14 @@ async function createCard() {
     script: document.getElementById('scriptUrl').value,
   });
 
+  // Lưu ảnh vào sessionStorage với key ngắn
   const imgKey = 'gc_' + Date.now();
   sessionStorage.setItem(imgKey, localStorage.getItem('gradcard_img'));
 
-  // TẠO LINK VÀ RÚT GỌN
-const link = '/Graduate-Dthu/thiep.html?' + params.toString() + '&imgKey=' + imgKey;
-  
-  try {
-    const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(link)}`);
-    const shortLink = await response.text();
-    window._cardLink = shortLink;
-    document.getElementById('resultLink').textContent = shortLink;
-  } catch (err) {
-    console.error("Lỗi rút gọn:", err);
-    window._cardLink = link;
-    document.getElementById('resultLink').textContent = link;
-  }
+  const link = 'thiep.html?' + params.toString() + '&imgKey=' + imgKey;
+  window._cardLink = link;
 
+  document.getElementById('resultLink').textContent = window.location.origin + '/' + link;
   document.getElementById('resultCard').style.display = 'block';
   document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth' });
 
